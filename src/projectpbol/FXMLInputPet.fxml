@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectpbol.FXMLInputPetController">
+   <children>
+      <Label fx:id="title" layoutX="264.0" layoutY="14.0" text="Input Pet">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lname" layoutX="102.0" layoutY="70.0" text="Pet Name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lweight" layoutX="102.0" layoutY="123.0" text="Attached Player:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lhappy" layoutX="102.0" layoutY="176.0" text="Pet Species:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lhunger" layoutX="102.0" layoutY="229.0" text="Pet Carry Capability:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfname" layoutX="276.0" layoutY="64.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfspec" layoutX="275.0" layoutY="170.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfcarry" layoutX="275.0" layoutY="223.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="275.0" layoutY="282.0" mnemonicParsing="false" onAction="#cancelClick" text="Cancel">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="418.0" layoutY="282.0" mnemonicParsing="false" onAction="#submitClick" text="Submit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="chsplayer" layoutX="276.0" layoutY="117.0" prefHeight="39.0" prefWidth="224.0" />
+   </children>
+</AnchorPane>
