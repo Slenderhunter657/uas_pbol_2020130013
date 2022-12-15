@@ -28,6 +28,7 @@ CREATE TABLE `items` (
   `item_weight` float NOT NULL,
   `item_fun` int DEFAULT NULL,
   `item_hunger` int DEFAULT NULL,
+  `consumable` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -38,7 +39,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,'asdff',12,222,1),(2,'kewi',6,6,6);
+INSERT INTO `items` VALUES (1,'asdff',12,222,1,1),(2,'kewi',6,6,6,1);
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +95,7 @@ CREATE TABLE `player` (
 
 LOCK TABLES `player` WRITE;
 /*!40000 ALTER TABLE `player` DISABLE KEYS */;
-INSERT INTO `player` VALUES (1,'asdfd',32,0);
+INSERT INTO `player` VALUES (1,'asdfd',32,1),(2,'wer',32,0);
 /*!40000 ALTER TABLE `player` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,6 +120,7 @@ CREATE TABLE `playerinventory` (
 
 LOCK TABLES `playerinventory` WRITE;
 /*!40000 ALTER TABLE `playerinventory` DISABLE KEYS */;
+INSERT INTO `playerinventory` VALUES (1,2,12),(2,1,1),(2,2,6);
 /*!40000 ALTER TABLE `playerinventory` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -131,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-12 20:18:59
+-- Dump completed on 2022-12-15 13:17:39
