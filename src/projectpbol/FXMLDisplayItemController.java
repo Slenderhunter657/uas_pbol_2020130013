@@ -65,6 +65,10 @@ public class FXMLDisplayItemController implements Initializable {
             col = new TableColumn("item_hunger");
             col.setCellValueFactory(new PropertyValueFactory<modelItem, String>("itemHunger"));
             tbvitem.getColumns().addAll(col);
+            
+            col = new TableColumn("consumable");
+            col.setCellValueFactory(new PropertyValueFactory<modelItem, String>("consumable"));
+            tbvitem.getColumns().addAll(col);
 
             tbvitem.setItems(data);
         } else {

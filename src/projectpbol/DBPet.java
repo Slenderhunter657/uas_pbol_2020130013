@@ -48,7 +48,7 @@ public class DBPet {
         }
     }
     
-    public int validasi(int nomor) {
+    public int validasi(int nomor,String name) {
         int val = 0;
         try {
             connection con = new connection();
@@ -57,6 +57,11 @@ public class DBPet {
             ResultSet rs = con.statement.executeQuery("select count(*) as jml from pet where pet_id = '" + nomor + "'");
             while (rs.next()) {
                 val = rs.getInt("jml");
+            }
+            
+            rs = con.statement.executeQuery("select count(*) as jml from pet where pet_name = '" + name + "'");
+            while (rs.next()) {
+                val += rs.getInt("jml");
             }
             con.clCon();
         } catch (SQLException e) {

@@ -28,7 +28,7 @@ public class DBItem {
             connection con = new connection();
             con.opCon();
             con.statement = con.dbCon.createStatement();
-            ResultSet rs = con.statement.executeQuery("Select item_id,item_name,item_weight,item_fun,item_hunger from items");
+            ResultSet rs = con.statement.executeQuery("Select * from items");
             while(rs.next()){
                 modelItem d = new modelItem();
                 d.setItemId(Integer.parseInt(rs.getString("item_id")));
@@ -36,6 +36,7 @@ public class DBItem {
                 d.setItemWeight(Float.parseFloat(rs.getString("item_weight")));
                 d.setItemHappy(Integer.parseInt(rs.getString("item_fun")));
                 d.setItemHunger(Integer.parseInt(rs.getString("item_hunger")));
+                d.setConsumable(Boolean.valueOf(rs.getString("consumable")));
                 TableData.add(d);
             }
             con.clCon();
@@ -68,12 +69,13 @@ public class DBItem {
         connection con = new connection();
         try {
             con.opCon();
-            con.preparedStatement = con.dbCon.prepareStatement("insert into items (item_id, item_name, item_weight, item_fun, item_hunger) values (?,?,?,?,?)");
+            con.preparedStatement = con.dbCon.prepareStatement("insert into items (item_id, item_name, item_weight, item_fun, item_hunger, consumable) values (?,?,?,?,?,?)");
             con.preparedStatement.setString(1, String.valueOf(this.getDt().getItemId()));
             con.preparedStatement.setString(2, this.getDt().getItemName());
             con.preparedStatement.setString(3, String.valueOf(this.getDt().getItemWeight()));
             con.preparedStatement.setString(4, String.valueOf(this.getDt().getItemHappy()));
             con.preparedStatement.setString(5, String.valueOf(this.getDt().getItemHunger()));
+            con.preparedStatement.setString(6, String.valueOf(this.getDt().isConsumable()));
             con.preparedStatement.executeUpdate();
             berhasil = true;
         }catch (Exception e){
@@ -107,12 +109,13 @@ public class DBItem {
         connection con = new connection();
         try {
             con.opCon();
-            con.preparedStatement = con.dbCon.prepareStatement("update items set item_name = ?, item_weight = ?, item_fun = ?, item_hunger = ? where item_id = ? ;");
+            con.preparedStatement = con.dbCon.prepareStatement("update items set item_name = ?, item_weight = ?, item_fun = ?, item_hunger = ?, consumable = ? where item_id = ? ;");
             con.preparedStatement.setString(1, this.getDt().getItemName());
             con.preparedStatement.setString(2, String.valueOf(this.getDt().getItemWeight()));
             con.preparedStatement.setString(3, String.valueOf(this.getDt().getItemHappy()));
             con.preparedStatement.setString(4, String.valueOf(this.getDt().getItemHunger()));
-            con.preparedStatement.setString(5, String.valueOf(this.getDt().getItemId()));
+            con.preparedStatement.setString(5, String.valueOf(this.getDt().isConsumable()));
+            con.preparedStatement.setString(6, String.valueOf(this.getDt().getItemId()));
             con.preparedStatement.executeUpdate();
             berhasil = true;
         } catch (Exception e) {

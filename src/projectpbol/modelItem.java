@@ -10,6 +10,15 @@ package projectpbol;
  */
 public class modelItem {
     private int itemId,itemHappy,itemHunger;
+    private boolean consumable;
+
+    public boolean isConsumable() {
+        return consumable;
+    }
+
+    public void setConsumable(boolean consumable) {
+        this.consumable = consumable;
+    }
 
     public int getItemHappy() {
         return itemHappy;

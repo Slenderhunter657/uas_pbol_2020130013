@@ -81,14 +81,14 @@ public class FXMLLoadPlayerController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLEmu.fxml"));
             Parent root = (Parent) loader.load();
-            FXMLEmuController emu = (FXMLEmuController) loader.getController();
-            emu.getData(a);
             Scene scene = new Scene(root);
             Stage stg = new Stage();
             stg.initModality(Modality.APPLICATION_MODAL);
             stg.setResizable(false);
             stg.setIconified(false);
             stg.setScene(scene);
+            FXMLEmuController emu = (FXMLEmuController) loader.getController();
+            emu.getData(a);
             stg.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();

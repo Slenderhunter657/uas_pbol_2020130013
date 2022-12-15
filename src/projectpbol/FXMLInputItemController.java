@@ -80,6 +80,12 @@ public class FXMLInputItemController implements Initializable {
             a.showAndWait();
             return;
         }
+        
+        if(m.getItemHappy()>0||m.getItemHunger()>0){
+                m.setConsumable(true);
+            }else{
+                m.setConsumable(false);
+            }
 
         FXMLMainController.dtItem.setDt(m);
         if (editdata) {

@@ -6,6 +6,7 @@ package projectpbol;
 
 import java.net.URL;
 import java.sql.ResultSet;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -98,6 +99,12 @@ public class FXMLInputPetController implements Initializable {
         m.setPetSpecies(tfspec.getText());
         m.setPetHunger(0);
         m.setPetHappy(50);
+        
+        if(tfcarry.getText().equals("")||tfcarry.getText().isEmpty()||tfcarry.getText()==null){
+            Random rd = new Random();
+            m.setPetCarry((rd.nextFloat()*70)+30);
+        }
+        
         try {
             m.setPetCarry(Float.parseFloat(tfcarry.getText()));
         } catch (NumberFormatException e) {
@@ -119,7 +126,7 @@ public class FXMLInputPetController implements Initializable {
                 a.showAndWait();
             }
         } else {
-            if (FXMLMainController.dtPet.validasi(m.getPetId()) <= 0) {
+            if (FXMLMainController.dtPet.validasi(m.getPetId(),m.getPetName()) <= 0) {
                 if (FXMLMainController.dtPet.insert()) {
                     Alert a = new Alert(Alert.AlertType.INFORMATION, "Data berhasil disimpan", ButtonType.OK);
                     a.showAndWait();
